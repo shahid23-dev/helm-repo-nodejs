@@ -3,7 +3,7 @@ serviceAccount:
   create: true
 image:
   repository: shahid23/git    # Your Docker repository
-  tag: 11                 # Tag of the Docker image to use
+  tag: 31              # Tag of the Docker image to use
 
 service:
   type: NodePort
