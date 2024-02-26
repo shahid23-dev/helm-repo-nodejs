@@ -1,0 +1,41 @@
+
+serviceAccount:
+  create: true
+image:
+  repository: shahid23/git    # Your Docker repository
+  tag: 11                 # Tag of the Docker image to use
+
+service:
+  type: NodePort
+  port: 3000
+  targetPort: 3000
+  nodePort: 30000
+
+serviceAccount:
+  create: false
+
+autoscaling:
+  enabled: false
+
+ingress:
+  enabled: false
+
+resources: {}
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 3000
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 3000
+
+volumes:
+  - name: data-volume
+    emptyDir: {}
+
+volumeMounts:
+  - name: data-volume
+    mountPath: /data
